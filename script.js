@@ -27,12 +27,25 @@ $(document).keyup(function(e)
 $(document).keypress(function(e) 
 {
 	console.log(e.keyCode);
-	if( (e.keyCode>47 && e.keyCode<58))
+	if( (e.keyCode>47 && e.keyCode<58) || e.keyCode == 45  )
 	{
 
-		temp += e.key+"";
-		if(pos==0){if(parseInt(temp)){num1.innerHTML = parseInt(temp);}}
-		else if(pos==1){num2.innerHTML = parseInt(temp);}
+		if(e.keyCode==45)
+		{
+			if(temp=="")
+			{
+				temp="-";
+				if(pos==0){num1.innerHTML = temp;}
+				else if(pos==1){num2.innerHTML = temp;}
+			}
+		}
+		else
+		{
+		
+			temp += e.key+"";
+			if(pos==0){if(parseInt(temp)){num1.innerHTML = parseInt(temp);}}
+			else if(pos==1){num2.innerHTML = parseInt(temp);}
+		}
 	}
 
 
